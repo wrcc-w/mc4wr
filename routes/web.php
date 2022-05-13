@@ -13,19 +13,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function () {  
+$testModel = Westreels\WestreelsMain\WestreelsMain::indexTest();
+die(var_dump($testModel));
 });
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+
+
 
 Route::middleware([
     'auth:sanctum',
-    config('jetstream.auth_session'),
 ])->group(function () {
+
+
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    
 });
+
+
